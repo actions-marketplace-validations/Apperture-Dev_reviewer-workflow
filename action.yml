@@ -48,7 +48,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://registry.gitlab.com/apperturedev/reviewer-workflow:1.7.0
+  image: docker://registry.gitlab.com/apperturedev/reviewer-workflow:1.7.1
   env:
     REVIEWER_GITHUB_TOKEN: ${{ inputs.github-token }}
     REVIEWER_PROVIDER: ${{ inputs.provider }}
