@@ -86,7 +86,7 @@ jobs:
         with:
           persist-credentials: false
       # The release job pins this to the same version as the workflow.
-      - uses: Apperture-Dev/reviewer-workflow@v1.8.0
+      - uses: Apperture-Dev/reviewer-workflow@v1.8.1
         with:
           provider: ${{ inputs.provider }}
           model: ${{ inputs.model }}
