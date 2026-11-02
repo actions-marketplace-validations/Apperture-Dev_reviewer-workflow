@@ -83,7 +83,7 @@ The reusable workflow and the Action take the same inputs, except `github-token`
 | `extra-instructions` | *(empty)* | Extra free-text instructions for the reviewers |
 | `exclude-paths` | lockfiles, `vendor/*`, `dist/*`, minified files… | Comma-separated globs that are not reviewed |
 | `extra-exclude-paths` | *(empty)* | Globs excluded on top of `exclude-paths`, so adding one does not mean copying the defaults |
-| `review-depth` | `deep` | `deep`: the reviewers must read the callers of the changed code; `quick`: review from the diff alone |
+| `review-depth` | `deep` | `deep`: the reviewers must open the files under review and the callers of the changed code, and the rest of the merge request is listed for them to read; `quick`: review from the diff, with the rest of the merge request as context diff |
 | `max-findings` | `20` | Maximum number of published findings (most severe first) |
 | `max-diff-chars` | `150000` | Larger diffs are truncated at file boundaries and the review says so |
 | `output-dir` | `reviewer-output` | Where `findings.json`, the context and the Conductor log are written |

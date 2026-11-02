@@ -44,7 +44,7 @@ on:
         type: string
         default: ""
       review-depth:
-        description: "deep: reviewers must read the callers of the changed code with their tools; quick: review from the diff alone"
+        description: "deep: reviewers must open the changed files and their callers, and the rest of the merge request is listed for them to read; quick: review from the diff, with the rest of the merge request as context diff"
         type: string
         default: deep
       max-findings:
@@ -86,7 +86,7 @@ jobs:
         with:
           persist-credentials: false
       # The release job pins this to the same version as the workflow.
-      - uses: Apperture-Dev/reviewer-workflow@v1.7.1
+      - uses: Apperture-Dev/reviewer-workflow@v1.8.0
         with:
           provider: ${{ inputs.provider }}
           model: ${{ inputs.model }}
