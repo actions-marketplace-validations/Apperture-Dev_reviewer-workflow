@@ -34,7 +34,7 @@ inputs:
     description: Comma-separated glob patterns excluded on top of exclude-paths, so the defaults stay
     default: ""
   review-depth:
-    description: "deep: reviewers must read the callers of the changed code with their tools; quick: review from the diff alone"
+    description: "deep: reviewers must open the changed files and their callers, and the rest of the merge request is listed for them to read; quick: review from the diff, with the rest of the merge request as context diff"
     default: deep
   max-findings:
     description: Maximum number of published findings (most severe first)
@@ -48,7 +48,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://registry.gitlab.com/apperturedev/reviewer-workflow:1.7.1
+  image: docker://registry.gitlab.com/apperturedev/reviewer-workflow:1.8.1
   env:
     REVIEWER_GITHUB_TOKEN: ${{ inputs.github-token }}
     REVIEWER_PROVIDER: ${{ inputs.provider }}
