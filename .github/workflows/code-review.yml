@@ -39,6 +39,14 @@ on:
         description: Comma-separated glob patterns of files that are not reviewed
         type: string
         default: "*.lock,package-lock.json,pnpm-lock.yaml,go.sum,vendor/*,node_modules/*,dist/*,build/*,*.min.js,*.min.css,*.map,*.svg"
+      extra-exclude-paths:
+        description: Comma-separated glob patterns excluded on top of exclude-paths, so the defaults stay
+        type: string
+        default: ""
+      review-depth:
+        description: "deep: reviewers must read the callers of the changed code with their tools; quick: review from the diff alone"
+        type: string
+        default: deep
       max-findings:
         description: Maximum number of published findings (most severe first)
         type: string
@@ -78,7 +86,7 @@ jobs:
         with:
           persist-credentials: false
       # The release job pins this to the same version as the workflow.
-      - uses: Apperture-Dev/reviewer-workflow@v1.6.0
+      - uses: Apperture-Dev/reviewer-workflow@v1.7.1
         with:
           provider: ${{ inputs.provider }}
           model: ${{ inputs.model }}
@@ -87,6 +95,8 @@ jobs:
           rules-files: ${{ inputs.rules-files }}
           extra-instructions: ${{ inputs.extra-instructions }}
           exclude-paths: ${{ inputs.exclude-paths }}
+          extra-exclude-paths: ${{ inputs.extra-exclude-paths }}
+          review-depth: ${{ inputs.review-depth }}
           max-findings: ${{ inputs.max-findings }}
           max-diff-chars: ${{ inputs.max-diff-chars }}
           output-dir: ${{ inputs.output-dir }}

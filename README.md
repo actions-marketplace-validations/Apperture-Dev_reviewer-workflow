@@ -82,6 +82,8 @@ The reusable workflow and the Action take the same inputs, except `github-token`
 | `rules-files` | `AGENTS.md,CLAUDE.md,REVIEW.md` | Repository files with project rules the review must enforce (category `repo-rules`) |
 | `extra-instructions` | *(empty)* | Extra free-text instructions for the reviewers |
 | `exclude-paths` | lockfiles, `vendor/*`, `dist/*`, minified files… | Comma-separated globs that are not reviewed |
+| `extra-exclude-paths` | *(empty)* | Globs excluded on top of `exclude-paths`, so adding one does not mean copying the defaults |
+| `review-depth` | `deep` | `deep`: the reviewers must read the callers of the changed code; `quick`: review from the diff alone |
 | `max-findings` | `20` | Maximum number of published findings (most severe first) |
 | `max-diff-chars` | `150000` | Larger diffs are truncated at file boundaries and the review says so |
 | `output-dir` | `reviewer-output` | Where `findings.json`, the context and the Conductor log are written |
